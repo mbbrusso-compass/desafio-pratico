@@ -1,0 +1,5 @@
+amount_transactions = CALCULATE(COUNT('mateus_db transactions'[merchant]), FILTER('mateus_db transactions', 'mateus_db transactions'[merchant] = EARLIER('analytic merchants'[id])))
+
+tpv = CALCULATE(SUM('mateus_db transactions'[amount]), FILTER('mateus_db transactions', 'mateus_db transactions'[merchant] = EARLIER('analytic merchants'[id])))
+
+ticket medio = [tpv] / [qtd]
